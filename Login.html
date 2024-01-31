@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniProject</title>
+    <!-- Bootstrap links and sources -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+    <!-- FontAwesome toolkit -->
+    <script src="https://kit.fontawesome.com/40aec42df1.js" crossorigin="anonymous"></script>
+
+</head>
+
+<style>
+  html {
+        height: 100%;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+    background: linear-gradient(#000001, rgb(67, 66, 66));
+    box-sizing: border-box;
+    
+}
+
+/* width */
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+    
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #888; 
+    }
+    
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+    }
+
+.login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, .5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    border-radius: 10px;
+}
+
+.login-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+}
+
+.login-box .user-box {
+    position: relative;
+}
+
+.login-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.login-box .user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+h2:hover {
+    color: #f46b03;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #f46b03;
+    font-size: 12px;
+}
+
+.login-box form .login {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #03e9f4;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px;
+}
+
+.login-box form .signup {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #f46b03;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px;
+    margin-left: 50px;
+}
+
+.login-box .login:hover {
+    background: #03e8f4;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #080808,
+                0 0 25px #03e8f4,
+                0 0 50px #03e8f4,
+                0 0 100px #03e8f4;
+}
+
+.login-box .signup:hover {
+    background: #f46b03;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #080808,
+                0 0 25px #f46b03,
+                0 0 50px #f46b03,
+                0 0 100px #f46b03;
+}
+
+.login-box a span {
+    position: absolute;
+    display: block;
+}
+
+.login-box .login span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #03e8f4);
+    animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+    0% {
+        left: -100%;
+    }
+    50%, 100% {
+        left: 100%;
+    }
+}
+
+.login-box .signup span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #f46b03);
+    animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+    0% {
+        left: -100%;
+    }
+    50%, 100% {
+        left: 100%;
+    }
+}
+
+.login-box .login span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #03e8f4);
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: .25s;
+}
+
+@keyframes btn-anim2 {
+    0% {
+        top: -100%;
+    }
+    50%, 100% {
+        top: 100%;
+    }
+}
+
+.login-box .signup span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #f46b03);
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: .25s;
+}
+
+@keyframes btn-anim2 {
+    0% {
+        top: -100%;
+    }
+    50%, 100% {
+        top: 100%;
+    }
+}
+
+</style>
+
+<body>
+    <div class="login-box">
+        <h2><i class="fa-solid fa-house-user"></i> Hi There..!!</h2>
+        <form>
+          <div class="user-box">
+            <input type="text" class="username" name="" id="name" autocomplete="off" required>
+            <label id="name">Username</label>
+          </div>
+          <div class="user-box">
+            <input type="password" class="password" id="password" autocomplete="off" name="" required>
+            <label id="password">Password</label>
+          </div>
+
+          <span id="msg" style="color: #f46b03;"></span><br>
+
+          <a onclick="auth()" class="login" type="submit">
+            <span></span>
+            <span></span>
+            Login
+          </a>
+          <a href="/Signup.html" type="button" class="signup">
+            <span></span>
+            <span></span>
+            Sign Up
+          </a>
+        </form>
+      </div>
+
+      <script>
+        document.querySelector('.signup').onmouseover = function(){
+            var msg = document.getElementById('msg');
+            msg.textContent = "Do not have account Register Here!!";
+            return true;
+        }
+
+        document.querySelector('.login').onmouseover = function(){
+            var username = document.querySelector('.username').value;
+            var password = document.querySelector('.password').value;
+
+            if(username == ""){
+                var msg = document.getElementById('msg');
+                msg.textContent = "Kindly Enter your Name!!";
+                return false;
+            }
+            else if(password == ""){
+                var msg = document.getElementById('msg');
+                msg.textContent = "Kindly Enter your Password!!";
+                return false;
+            }
+            else {
+                var msg = document.getElementById('msg');
+                msg.textContent = "Make sure your UserName and Password are Correct!!";
+                return false;
+            }
+            return true;
+        }
+        
+        function auth(){
+
+        var username = document.getElementById("name").value;
+        var password = document.getElementById("password").value;
+
+            if(username == "Shadow" && password == "Shadow12"){
+                alert("Login Successfully!!");
+                alert("Taking you to Main Page!!");
+                location.assign('MiniPage.html');
+            }
+            else if(username == "Aakash" && password == "Aakash12"){
+                alert("Login Successfully!!");
+                alert("Taking you to Main Page!!");
+                location.assign('MiniPage.html');
+            }
+            else if(username != password) {
+                var msg = document.getElementById('msg');
+                msg.textContent = "UserName or Password is Incorrect!!";
+                return false;
+            }
+            return true;
+        }
+      </script>
+
+</body>
+</html>
